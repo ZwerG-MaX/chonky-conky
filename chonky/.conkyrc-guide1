@@ -1,0 +1,80 @@
+# Corey Goldberg <cgoldberg@gmail.com>
+alignment top_left
+background yes
+update_interval 1.0
+total_run_times 0
+use_xft yes
+own_window yes
+own_window_transparent yes
+own_window_type normal
+own_window_hints undecorated,below,skip_pager,skip_taskbar
+own_window_class Conky
+own_window_transparent yes
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+gap_x 15
+gap_y 40
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+
+TEXT
+${font sans-serif:bold:size=8}${color FFCC00}SISTEMA $stippled_hr
+${font sans-serif:normal:size=8}${color FFFFCC}Host: $alignr $nodename
+$sysname $alignr $machine
+Kernel: $alignr $kernel
+Uptime: $alignr $uptime
+#Procs: $alignr $processes
+#Running: $alignr $running_processes
+#Load Avg: $alignr $loadavg
+
+${font sans-serif:bold:size=8}${color FFCC00}CPU $stippled_hr
+${font sans-serif:normal:size=8}${color FFFFCC}Intel Core i7 4710HQ $alignr ${freq_g cpu1} GHz
+${font sans-serif:normal:size=8}${color FFFFCC}CPU History:
+${cpugraph 20,0 -t}
+CPU1: ${cpu cpu1} % ${cpubar cpu1}
+CPU2: ${cpu cpu2} % ${cpubar cpu2}
+CPU3: ${cpu cpu3} % ${cpubar cpu3}
+CPU4: ${cpu cpu4} % ${cpubar cpu4}
+CPU5: ${cpu cpu5} % ${cpubar cpu5}
+CPU6: ${cpu cpu6} % ${cpubar cpu6}
+CPU7: ${cpu cpu7} % ${cpubar cpu7}
+CPU8: ${cpu cpu8} % ${cpubar cpu8}
+
+${font sans-serif:bold:size=8}${color FFCC00}TOP PROCESOS (CPU) $stippled_hr ${font sans-serif:normal:size=8}${color FFFFCC}
+${top name 1} $alignr ${top cpu 1} %
+${top name 2} $alignr ${top cpu 2} %
+${top name 3} $alignr ${top cpu 3} %
+${top name 4} $alignr ${top cpu 4} %
+${top name 5} $alignr ${top cpu 5} %
+
+${font sans-serif:bold:size=8}${color FFCC00}TOP PROCESOS (MEM) $stippled_hr ${font sans-serif:normal:size=8}${color FFFFCC}
+${top_mem name 1} $alignr ${top_mem mem 1} %
+${top_mem name 2} $alignr ${top_mem mem 2} %
+${top_mem name 3} $alignr ${top_mem mem 3} %
+${top_mem name 4} $alignr ${top_mem mem 4} %
+${top_mem name 5} $alignr ${top_mem mem 5} %
+
+${font sans-serif:bold:size=8}${color FFCC00}MEMORIA $stippled_hr
+${font sans-serif:normal:size=8}${color FFFFCC}RAM $alignc $mem / $memmax $alignr $memperc %
+${color FFFFCC}${membar}
+
+${font sans-serif:bold:size=8}${color FFCC00}DISCO USADO $stippled_hr
+${font sans-serif:normal:size=8}${color FFFFCC}${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /} %
+${color FFFFCC}${fs_bar /}
+
+${font sans-serif:bold:size=8}${color FFCC00}DISCO I/O $stippled_hr
+${font sans-serif:normal:size=8}${color FFFFCC}Lectura: $alignr $diskio_read
+${diskiograph_read 20,0 -t}
+${font sans-serif:normal:size=8}${color FFFFCC}Escritura: $alignr $diskio_write
+${diskiograph_write 20,0 -t}
+
+${font sans-serif:bold:size=8}${color FFCC00}RED $stippled_hr
+${font sans-serif:normal:size=8}${color FFFFCC}Descarga: $alignr ${downspeed wlp4s0}/s
+${downspeedgraph wlp4s0 20,0 -t}
+${font sans-serif:normal:size=8}${color FFFFCC}Subida: $alignr ${upspeed wlp4s0}/s
+${upspeedgraph wlp4s0 20,0 -t}
