@@ -1,0 +1,60 @@
+#
+# Configuracion de Conky para visualizar informacion del CPU.
+#
+# Sebastian Rios Sabogal
+# https://about.me/sebaxtian
+#
+
+alignment top_left
+background yes
+update_interval 1.0
+total_run_times 0
+use_xft yes
+own_window yes
+own_window_transparent yes
+own_window_type normal
+own_window_hints undecorated,below,skip_pager,skip_taskbar
+own_window_class Conky
+own_window_transparent yes
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+minimum_size 200
+maximum_width 250
+gap_x 15
+gap_y 160
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+
+TEXT
+${font sans-serif:bold:size=8}${color FFCC00}CPU $stippled_hr
+${font sans-serif:normal:size=8}${color FFFFCC}Intel Core i7 4710HQ $alignr ${freq_g cpu1} GHz
+Temperatura $alignr ${execi 1 sensors | grep 'temp1:' | sed ':a;N;$!ba;s/\n/ /g' | cut -c15-22}
+Disipador $alignr ${execi 1 sensors | grep 'cpu_fan:' | cut -c14-22}
+${cpugraph 25,0 -t}
+CPU1: ${cpu cpu1} % ${cpubar cpu1}
+CPU2: ${cpu cpu2} % ${cpubar cpu2}
+CPU3: ${cpu cpu3} % ${cpubar cpu3}
+CPU4: ${cpu cpu4} % ${cpubar cpu4}
+CPU5: ${cpu cpu5} % ${cpubar cpu5}
+CPU6: ${cpu cpu6} % ${cpubar cpu6}
+CPU7: ${cpu cpu7} % ${cpubar cpu7}
+CPU8: ${cpu cpu8} % ${cpubar cpu8}
+#Core1 $alignr ${execi 1 sensors | grep 'Core 0:' | cut -c16-22}
+#Core2 $alignr ${execi 1 sensors | grep 'Core 1:' | cut -c16-22}
+#Core3 $alignr ${execi 1 sensors | grep 'Core 2:' | cut -c16-22}
+#Core4 $alignr ${execi 1 sensors | grep 'Core 3:' | cut -c16-22}
+
+${font sans-serif:bold:size=7}${color FFFFCC}TOP PROCESOS $stippled_hr ${font sans-serif:normal:size=8}${color FFFFCC}
+${top name 1} $alignr ${top cpu 1} %
+${top name 2} $alignr ${top cpu 2} %
+${top name 3} $alignr ${top cpu 3} %
+${top name 4} $alignr ${top cpu 4} %
+${top name 5} $alignr ${top cpu 5} %
+${top name 6} $alignr ${top cpu 6} %
+${top name 7} $alignr ${top cpu 7} %
+${top name 8} $alignr ${top cpu 8} %

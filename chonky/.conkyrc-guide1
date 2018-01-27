@@ -15,7 +15,7 @@ draw_shades no
 draw_outline no
 draw_borders no
 draw_graph_borders yes
-gap_x 15
+gap_x 250
 gap_y 40
 no_buffers yes
 uppercase no

@@ -1,0 +1,41 @@
+#
+# Configuracion de Conky para visualizar informacion del Sistema.
+#
+# Sebastian Rios Sabogal
+# https://about.me/sebaxtian
+#
+
+alignment top_left
+background yes
+update_interval 1.0
+total_run_times 0
+use_xft yes
+own_window yes
+own_window_transparent yes
+own_window_type normal
+own_window_hints undecorated,below,skip_pager,skip_taskbar
+own_window_class Conky
+own_window_transparent yes
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+minimum_size 200
+maximum_width 250
+gap_x 15
+gap_y 40
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+
+TEXT
+${font sans-serif:bold:size=8}${color FFCC00}SISTEMA $stippled_hr
+${font sans-serif:normal:size=8}${color FFFFCC}OS $alignr Ubuntu 16.04 LTS
+${font sans-serif:normal:size=8}${color FFFFCC}Host $alignr $nodename
+$sysname $alignr $machine
+Kernel $alignr $kernel
+Local $alignr ${addr wlp4s0}
+Publica $alignr ${execi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}
+Uso $alignr $uptime
